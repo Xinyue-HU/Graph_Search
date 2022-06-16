@@ -79,15 +79,3 @@ let find_shortest_path (g: 'a graph) (a: 'a) (b: 'a) : ('a list * weight) option
     | (p1,w1)::(p2,w2)::pws -> if w1<w2 then short((p1,w1)::pws) else short((p2,w2)::pws)
   in
   short (find_all_paths g a b)
-(* ---------- Hamming Numbers ----------- *)
-
-let rec merge s1 s2 =
-  { hd = if s1.hd<s2.hd then s1.hd else s2.hd;
-    tl = Susp (fun () -> if s1.hd=s2.hd then merge (force s1.tl) (force s2.tl) 
-                else if s1.hd<s2.hd then merge (force s1.tl) s2 
-                else merge s1 (force s2.tl)) }
-
-let rec hamming_series =
-  { hd = 1;
-    tl = Susp (fun () -> merge (times 2 hamming_series) 
-                  (merge (times 3 hamming_series) (times 5 hamming_series))) }
