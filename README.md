@@ -1,7 +1,3 @@
-# Graph Search (and Hamming Series)
+# Graph Search
 
-**(1). Find all paths and the shortest path in a graph between two nodes.**
-
-(2). Hamming Numbers by Lazy Programming
-
-*Note: (1) and (2) are irrelevant
+Find all paths and the shortest path in a graph between two nodes
